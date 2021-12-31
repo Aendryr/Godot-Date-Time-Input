@@ -1,0 +1,141 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/date-time-elements/tools/styles/BigTime.tres" type="DynamicFont" id=1]
+[ext_resource path="res://addons/date-time-elements/tools/styles/unhighlight_hour_minute.tres" type="StyleBox" id=2]
+[ext_resource path="res://addons/date-time-elements/tools/assets/time.png" type="Texture" id=3]
+[ext_resource path="res://addons/date-time-elements/tools/scenes/scripts/ManualTimePopup.gd" type="Script" id=4]
+
+[sub_resource type="ButtonGroup" id=1]
+
+[node name="ManualClock" type="PopupDialog"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -134.5
+margin_top = -122.0
+margin_right = 134.5
+margin_bottom = 122.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeInput" type="LineEdit" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -106.0
+margin_top = 3.0
+margin_right = 106.0
+margin_bottom = 52.0
+text = "12:00 pm"
+max_length = 8
+expand_to_text_length = true
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="TimeInput"]
+margin_left = 15.5
+margin_top = -6.0
+margin_right = 55.5
+margin_bottom = 8.0
+text = "Time"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Close" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -79.5
+margin_top = -50.0
+margin_right = -18.5
+margin_bottom = -17.0
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/focus = ExtResource( 2 )
+custom_styles/normal = ExtResource( 2 )
+text = "CLOSE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeToClock" type="Button" parent="."]
+margin_left = 207.5
+margin_top = 35.0
+margin_right = 238.5
+margin_bottom = 66.0
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/focus = ExtResource( 2 )
+custom_styles/normal = ExtResource( 2 )
+icon = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="."]
+margin_left = 30.0
+margin_top = 33.5
+margin_right = 70.0
+margin_bottom = 47.5
+text = "TIME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HoursMinutes" type="Label" parent="Time"]
+margin_left = 0.5
+margin_top = 5.0
+margin_right = 116.5
+margin_bottom = 66.0
+custom_fonts/font = ExtResource( 1 )
+text = "12:00"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 155.5
+margin_top = 53.0
+margin_right = 195.5
+margin_bottom = 101.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AM" type="CheckBox" parent="VBoxContainer"]
+margin_right = 49.0
+margin_bottom = 24.0
+group = SubResource( 1 )
+text = "AM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PM" type="CheckBox" parent="VBoxContainer"]
+margin_top = 28.0
+margin_right = 49.0
+margin_bottom = 52.0
+pressed = true
+group = SubResource( 1 )
+text = "PM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="draw" from="." to="." method="_on_ManualClock_draw"]
+[connection signal="focus_entered" from="TimeInput" to="." method="_on_TimeInput_focus_entered"]
+[connection signal="text_changed" from="TimeInput" to="." method="_on_TimeInput_text_changed"]
+[connection signal="pressed" from="Close" to="." method="_on_Close_pressed"]
+[connection signal="pressed" from="ChangeToClock" to="." method="_on_ChangeToClock_pressed"]
+[connection signal="pressed" from="VBoxContainer/AM" to="." method="_on_AMPM_pressed" binds= [ "am" ]]
+[connection signal="pressed" from="VBoxContainer/PM" to="." method="_on_AMPM_pressed" binds= [ "pm" ]]

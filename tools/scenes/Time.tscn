@@ -1,0 +1,564 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://addons/date-time-elements/tools/styles/BigTime.tres" type="DynamicFont" id=1]
+[ext_resource path="res://addons/date-time-elements/tools/assets/pencil-create.png" type="Texture" id=2]
+[ext_resource path="res://addons/date-time-elements/tools/scenes/scripts/TimePopup.gd" type="Script" id=3]
+[ext_resource path="res://addons/date-time-elements/tools/scenes/scripts/MinutesPopup.gd" type="Script" id=4]
+[ext_resource path="res://addons/date-time-elements/tools/scenes/scripts/HoursPopup.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.117647, 0.101961, 0.101961, 1 )
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+anti_aliasing = false
+
+[sub_resource type="ButtonGroup" id=3]
+
+[node name="Clock" type="PopupDialog"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -168.5
+margin_top = -228.5
+margin_right = 168.5
+margin_bottom = 228.5
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Minutes" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.2
+margin_top = -78.5
+margin_right = 123.2
+margin_bottom = 167.9
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hand" type="Position2D" parent="Minutes"]
+position = Vector2( 123.2, 123.2 )
+
+[node name="Center" type="Panel" parent="Minutes/Hand"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.0
+margin_top = -4.0
+margin_right = 4.0
+margin_bottom = 4.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Circle" type="Panel" parent="Minutes/Hand"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -17.0
+margin_top = -114.0
+margin_right = 18.0
+margin_bottom = -79.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line" type="Line2D" parent="Minutes/Hand"]
+position = Vector2( -200.2, -153.2 )
+points = PoolVector2Array( 200, 154, 200, 61 )
+width = 3.0
+default_color = Color( 0.282353, 0.580392, 0.235294, 1 )
+
+[node name="05" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+margin_left = 155.0
+margin_top = 22.0
+margin_right = 190.0
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 17, 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "05"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="10" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+margin_left = 190.0
+margin_top = 57.0
+margin_right = 225.0
+margin_bottom = 92.0
+rect_pivot_offset = Vector2( 17, 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="15" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+margin_left = 203.0
+margin_top = 105.7
+margin_right = 238.0
+margin_bottom = 140.7
+rect_pivot_offset = Vector2( 17, 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "15"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="20" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+margin_left = 190.0
+margin_top = 155.0
+margin_right = 225.0
+margin_bottom = 190.0
+rect_pivot_offset = Vector2( 17, 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "20"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="25" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+margin_left = 155.0
+margin_top = 190.0
+margin_right = 190.0
+margin_bottom = 225.0
+rect_pivot_offset = Vector2( 17, 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "25"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="30" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+margin_left = 105.7
+margin_top = 203.0
+margin_right = 140.7
+margin_bottom = 238.0
+rect_pivot_offset = Vector2( 17, 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "30"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="35" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+margin_left = 57.0
+margin_top = 190.0
+margin_right = 92.0
+margin_bottom = 225.0
+rect_pivot_offset = Vector2( 17, 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "35"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="40" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+margin_left = 22.0
+margin_top = 155.0
+margin_right = 57.0
+margin_bottom = 190.0
+rect_pivot_offset = Vector2( 17, 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "40"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="45" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+margin_left = 10.0
+margin_top = 105.7
+margin_right = 45.0
+margin_bottom = 140.7
+rect_pivot_offset = Vector2( 17, 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "45"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="50" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+margin_left = 22.0
+margin_top = 57.0
+margin_right = 57.0
+margin_bottom = 92.0
+rect_pivot_offset = Vector2( 17, 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "50"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="55" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+margin_left = 57.0
+margin_top = 22.0
+margin_right = 92.0
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 17, 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "55"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="00" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+margin_left = 105.7
+margin_top = 11.2
+margin_right = 140.7
+margin_bottom = 46.2
+rect_pivot_offset = Vector2( 17, 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "00"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hours" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.2
+margin_top = -78.5
+margin_right = 123.2
+margin_bottom = 167.9
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hand" type="Position2D" parent="Hours"]
+position = Vector2( 123.2, 123.2 )
+
+[node name="Center" type="Panel" parent="Hours/Hand"]
+modulate = Color( 0.282353, 0.580392, 0.235294, 1 )
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.0
+margin_top = -4.0
+margin_right = 4.0
+margin_bottom = 4.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Circle" type="Panel" parent="Hours/Hand"]
+modulate = Color( 0.282353, 0.580392, 0.235294, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -17.0
+margin_top = -114.0
+margin_right = 18.0
+margin_bottom = -79.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line" type="Line2D" parent="Hours/Hand"]
+position = Vector2( -200.2, -153.2 )
+points = PoolVector2Array( 200, 154, 200, 61 )
+width = 3.0
+default_color = Color( 0.282353, 0.580392, 0.235294, 1 )
+
+[node name="01" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+margin_left = 155.0
+margin_top = 22.0
+margin_right = 190.0
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 17, 17 )
+text = "01"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="02" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+margin_left = 190.0
+margin_top = 57.0
+margin_right = 225.0
+margin_bottom = 92.0
+rect_pivot_offset = Vector2( 17, 17 )
+text = "02"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="03" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+margin_left = 203.0
+margin_top = 105.7
+margin_right = 238.0
+margin_bottom = 140.7
+rect_pivot_offset = Vector2( 17, 17 )
+text = "03"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="04" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+margin_left = 190.0
+margin_top = 155.0
+margin_right = 225.0
+margin_bottom = 190.0
+rect_pivot_offset = Vector2( 17, 17 )
+text = "04"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="05" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+margin_left = 155.0
+margin_top = 190.0
+margin_right = 190.0
+margin_bottom = 225.0
+rect_pivot_offset = Vector2( 17, 17 )
+text = "05"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="06" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+margin_left = 105.7
+margin_top = 203.0
+margin_right = 140.7
+margin_bottom = 238.0
+rect_pivot_offset = Vector2( 17, 17 )
+text = "06"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="07" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+margin_left = 57.0
+margin_top = 190.0
+margin_right = 92.0
+margin_bottom = 225.0
+rect_pivot_offset = Vector2( 17, 17 )
+text = "07"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="08" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+margin_left = 22.0
+margin_top = 155.0
+margin_right = 57.0
+margin_bottom = 190.0
+rect_pivot_offset = Vector2( 17, 17 )
+text = "08"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="09" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+margin_left = 10.0
+margin_top = 105.7
+margin_right = 45.0
+margin_bottom = 140.7
+rect_pivot_offset = Vector2( 17, 17 )
+text = "09"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="10" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+margin_left = 22.0
+margin_top = 57.0
+margin_right = 57.0
+margin_bottom = 92.0
+rect_pivot_offset = Vector2( 17, 17 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="11" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+margin_left = 57.0
+margin_top = 22.0
+margin_right = 92.0
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 17, 17 )
+text = "11"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="12" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+anchor_right = 15.0
+anchor_bottom = 15.0
+margin_left = 105.7
+margin_top = 11.2
+margin_right = -3555.3
+margin_bottom = -3649.8
+rect_pivot_offset = Vector2( 17, 17 )
+text = "12"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Close" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -63.0
+margin_top = -59.0
+margin_right = -28.0
+margin_bottom = -24.0
+text = "CLOSE"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Time" type="Label" parent="."]
+margin_left = 30.0
+margin_top = 32.0
+margin_right = 70.0
+margin_bottom = 46.0
+text = "TIME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HoursMinutes" type="Label" parent="Time"]
+margin_left = -1.0
+margin_top = 17.0
+margin_right = 125.0
+margin_bottom = 66.0
+custom_fonts/font = ExtResource( 1 )
+text = "12:00"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SwitchToManual" type="Button" parent="."]
+margin_left = 256.5
+margin_top = 43.5
+margin_right = 292.5
+margin_bottom = 76.5
+icon = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 157.5
+margin_top = 61.5
+margin_right = 197.5
+margin_bottom = 110.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AM" type="CheckBox" parent="VBoxContainer"]
+margin_right = 49.0
+margin_bottom = 24.0
+group = SubResource( 3 )
+text = "AM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PM" type="CheckBox" parent="VBoxContainer"]
+margin_top = 28.0
+margin_right = 49.0
+margin_bottom = 52.0
+pressed = true
+group = SubResource( 3 )
+text = "PM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="about_to_show" from="." to="." method="_on_Clock_about_to_show"]
+[connection signal="mouse_entered" from="." to="." method="_on_Clock_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Clock_mouse_exited"]
+[connection signal="draw" from="Minutes" to="Minutes" method="_on_Minutes_draw"]
+[connection signal="hide" from="Minutes" to="Minutes" method="_on_Minutes_hide"]
+[connection signal="mouse_entered" from="Minutes" to="Minutes" method="_on_Minutes_mouse_entered"]
+[connection signal="mouse_exited" from="Minutes" to="Minutes" method="_on_Minutes_mouse_exited"]
+[connection signal="draw" from="Hours" to="Hours" method="_on_Hours_draw"]
+[connection signal="hide" from="Hours" to="Hours" method="_on_Hours_hide"]
+[connection signal="mouse_entered" from="Hours" to="Hours" method="_on_Hours_mouse_entered"]
+[connection signal="mouse_exited" from="Hours" to="Hours" method="_on_Hours_mouse_exited"]
+[connection signal="pressed" from="Close" to="." method="_on_Close_pressed"]
+[connection signal="pressed" from="SwitchToManual" to="." method="_on_SwitchToManual_pressed"]
+[connection signal="pressed" from="VBoxContainer/AM" to="." method="_on_AMPM_pressed" binds= [ "am" ]]
+[connection signal="pressed" from="VBoxContainer/PM" to="." method="_on_AMPM_pressed" binds= [ "pm" ]]
