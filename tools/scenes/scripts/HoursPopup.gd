@@ -12,7 +12,7 @@ var disabled=true
 # If mouse clicks outside parent hide
 func _input(event):
 	if(!disabled):
-		if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 			if not dragging and event.pressed and (mouse_in_clock and !get_parent().mouse_in):
 				dragging = true
 				hour=get_parent().get_closest_label(get_tree().get_nodes_in_group("date-time-hours-popup"),get_global_mouse_position()).text

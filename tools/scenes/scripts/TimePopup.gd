@@ -1,4 +1,4 @@
-extends PopupDialog
+extends Popup
 
 # Check if mouse is in clock (signals)
 var mouse_in=false;
@@ -45,9 +45,15 @@ func change_time(hour,minute)->void:
 	if(hour=="" and minute!=""):
 		get_parent().emit_signal("time_changed", $Hours.hour+":"+minute, $VBoxContainer/AM.group.get_pressed_button().name.to_lower())
 		self.hide()
-	
+
 # Switch popup to manual clock popup
 func _on_SwitchToManual_pressed()->void:
 	hide()
 	get_parent().get_node("ManualClock").popup()
 	get_parent().popup="ManualClock"
+	$Minutes.hide()
+	$Hours.show()
+
+func _on_about_to_popup():
+	$Minutes.hide()
+	$Hours.show()

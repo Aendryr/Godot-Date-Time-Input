@@ -1,4 +1,4 @@
-extends PopupDialog
+extends Popup
 
 # Hide when pressing the close button
 func _on_Close_pressed():

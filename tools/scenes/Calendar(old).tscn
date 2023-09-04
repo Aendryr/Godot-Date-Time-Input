@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=3 uid="uid://coy382y0ye3gf"]
+
+[ext_resource type="Script" path="res://addons/date-time-elements/tools/scenes/scripts/CalendarPopup.gd" id="1"]
+
+[node name="Calendar" type="PopupDialog"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+editor_description = ""
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -98.0
+margin_top = -85.0
+margin_right = 145.0
+margin_bottom = 165.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+script = ExtResource("1")
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="HBoxContainer" parent="."]
+
+[node name="Prev" type="Button" parent="Menu"]
+layout_mode = 2
+text = "<"
+
+[node name="Next" type="Button" parent="Menu"]
+layout_mode = 2
+text = ">"
+
+[node name="Days" type="GridContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+columns = 7
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Years" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="Title" type="HBoxContainer" parent="."]
+
+[node name="Month" type="Label" parent="Title"]
+layout_mode = 2
+text = "Noiembrie 2014"
+
+[node name="SelectYears" type="Button" parent="Title"]
+layout_mode = 2
+toggle_mode = true
+text = "v"
+
+[node name="WeekDays" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[connection signal="pressed" from="Menu/Prev" to="." method="_on_Prev_pressed"]
+[connection signal="pressed" from="Menu/Next" to="." method="_on_Next_pressed"]
+[connection signal="toggled" from="Title/SelectYears" to="." method="_on_SelectYears_toggled"]

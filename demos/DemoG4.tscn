@@ -1,0 +1,287 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmwaltnavtxb7"]
+
+[ext_resource type="PackedScene" uid="uid://bty2uh6db1pmv" path="res://addons/date-time-elements/tools/scenes/Clock.tscn" id="1_jtnk7"]
+[ext_resource type="Script" path="res://addons/date-time-elements/tools/scenes/scripts/TimePopup.gd" id="2_irnb4"]
+[ext_resource type="Script" path="res://addons/date-time-elements/tools/scenes/scripts/MinutesPopup.gd" id="3_ips3r"]
+[ext_resource type="Script" path="res://addons/date-time-elements/tools/scenes/scripts/HoursPopup.gd" id="4_14q0h"]
+[ext_resource type="Texture2D" uid="uid://du2ayh350pgho" path="res://addons/date-time-elements/tools/assets/pencil-create.png" id="5_8n30u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g85ql"]
+bg_color = Color(0.352941, 0.690196, 0.341176, 1)
+corner_radius_top_left = 250
+corner_radius_top_right = 250
+corner_radius_bottom_right = 250
+corner_radius_bottom_left = 250
+corner_detail = 20
+
+[node name="Demo G4" type="Node2D"]
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+size = Vector2i(300, 400)
+visible = true
+script = ExtResource("2_irnb4")
+
+[node name="Control" type="Control" parent="PopupPanel"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Minutes" type="Panel" parent="PopupPanel/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -196.0
+offset_right = 146.0
+offset_bottom = 196.0
+script = ExtResource("3_ips3r")
+
+[node name="Hand" type="Marker2D" parent="PopupPanel/Control/Minutes"]
+position = Vector2(123.2, 123.2)
+gizmo_extents = 0.0
+
+[node name="Center" type="Panel" parent="PopupPanel/Control/Minutes/Hand"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Circle" type="Panel" parent="PopupPanel/Control/Minutes/Hand"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Line" type="Line2D" parent="PopupPanel/Control/Minutes/Hand"]
+position = Vector2(-200.2, -153.2)
+points = PackedVector2Array(200, 154, 200, 61)
+width = 3.0
+default_color = Color(0.282353, 0.580392, 0.235294, 1)
+
+[node name="05" type="Label" parent="PopupPanel/Control/Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+text = "05"
+
+[node name="10" type="Label" parent="PopupPanel/Control/Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+text = "10"
+
+[node name="15" type="Label" parent="PopupPanel/Control/Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+text = "15"
+
+[node name="20" type="Label" parent="PopupPanel/Control/Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+text = "20"
+
+[node name="25" type="Label" parent="PopupPanel/Control/Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+text = "25"
+
+[node name="30" type="Label" parent="PopupPanel/Control/Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+text = "30"
+
+[node name="35" type="Label" parent="PopupPanel/Control/Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+text = "35"
+
+[node name="40" type="Label" parent="PopupPanel/Control/Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+text = "40"
+
+[node name="45" type="Label" parent="PopupPanel/Control/Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+text = "45"
+
+[node name="50" type="Label" parent="PopupPanel/Control/Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+text = "50"
+
+[node name="55" type="Label" parent="PopupPanel/Control/Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+text = "55"
+
+[node name="00" type="Label" parent="PopupPanel/Control/Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+text = "00"
+
+[node name="Hours" type="Panel" parent="PopupPanel/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -196.0
+offset_right = 146.0
+offset_bottom = 196.0
+script = ExtResource("4_14q0h")
+
+[node name="Hand" type="Marker2D" parent="PopupPanel/Control/Hours"]
+position = Vector2(123.2, 123.2)
+
+[node name="Center" type="Panel" parent="PopupPanel/Control/Hours/Hand"]
+modulate = Color(0.282353, 0.580392, 0.235294, 1)
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Circle" type="Panel" parent="PopupPanel/Control/Hours/Hand"]
+modulate = Color(0.282353, 0.580392, 0.235294, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Line" type="Line2D" parent="PopupPanel/Control/Hours/Hand"]
+position = Vector2(-200.2, -153.2)
+points = PackedVector2Array(200, 154, 200, 61)
+width = 3.0
+default_color = Color(0.282353, 0.580392, 0.235294, 1)
+
+[node name="01" type="Label" parent="PopupPanel/Control/Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+text = "01"
+
+[node name="02" type="Label" parent="PopupPanel/Control/Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+text = "02"
+
+[node name="03" type="Label" parent="PopupPanel/Control/Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+text = "03"
+
+[node name="04" type="Label" parent="PopupPanel/Control/Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+text = "04"
+
+[node name="05" type="Label" parent="PopupPanel/Control/Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+text = "05"
+
+[node name="06" type="Label" parent="PopupPanel/Control/Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+text = "06"
+
+[node name="07" type="Label" parent="PopupPanel/Control/Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+text = "07"
+
+[node name="08" type="Label" parent="PopupPanel/Control/Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+text = "08"
+
+[node name="09" type="Label" parent="PopupPanel/Control/Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+text = "09"
+
+[node name="10" type="Label" parent="PopupPanel/Control/Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+text = "10"
+
+[node name="11" type="Label" parent="PopupPanel/Control/Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+text = "11"
+
+[node name="12" type="Label" parent="PopupPanel/Control/Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+anchor_right = 15.0
+anchor_bottom = 15.0
+text = "12"
+
+[node name="Close" type="Button" parent="PopupPanel/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -292.0
+offset_top = -392.0
+text = "CLOSE"
+
+[node name="Time" type="Label" parent="PopupPanel/Control"]
+offset_right = 292.0
+offset_bottom = 392.0
+text = "TIME"
+
+[node name="HoursMinutes" type="Label" parent="PopupPanel/Control/Time"]
+layout_mode = 0
+text = "12:00"
+
+[node name="SwitchToManual" type="Button" parent="PopupPanel/Control"]
+offset_right = 292.0
+offset_bottom = 392.0
+icon = ExtResource("5_8n30u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupPanel/Control"]
+offset_right = 292.0
+offset_bottom = 392.0
+
+[node name="AM" type="CheckBox" parent="PopupPanel/Control/VBoxContainer"]
+layout_mode = 2
+text = "AM"
+
+[node name="PM" type="CheckBox" parent="PopupPanel/Control/VBoxContainer"]
+layout_mode = 2
+text = "PM"
+
+[node name="Panel" type="Panel" parent="PopupPanel/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -125.0
+offset_right = 125.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_g85ql")
+
+[node name="Clock" parent="." instance=ExtResource("1_jtnk7")]
+size = Vector2i(300, 300)
+visible = false
+
+[node name="Hand" parent="Clock/Minutes" index="0"]
+gizmo_extents = 0.0
+
+[node name="Control" type="Control" parent="Clock"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="draw" from="PopupPanel/Control/Minutes" to="PopupPanel/Control/Minutes" method="_on_Minutes_draw" flags=18]
+[connection signal="mouse_entered" from="PopupPanel/Control/Minutes" to="PopupPanel/Control/Minutes" method="_on_Minutes_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="PopupPanel/Control/Minutes" to="PopupPanel/Control/Minutes" method="_on_Minutes_mouse_exited" flags=18]
+[connection signal="draw" from="PopupPanel/Control/Hours" to="PopupPanel/Control/Hours" method="_on_Hours_draw" flags=18]
+[connection signal="mouse_entered" from="PopupPanel/Control/Hours" to="PopupPanel/Control/Hours" method="_on_Hours_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="PopupPanel/Control/Hours" to="PopupPanel/Control/Hours" method="_on_Hours_mouse_exited" flags=18]
+[connection signal="pressed" from="PopupPanel/Control/SwitchToManual" to="Clock" method="_on_SwitchToManual_pressed" flags=18]
+[connection signal="pressed" from="PopupPanel/Control/VBoxContainer/AM" to="Clock" method="_on_AMPM_pressed" flags=18]
+[connection signal="pressed" from="PopupPanel/Control/VBoxContainer/PM" to="Clock" method="_on_AMPM_pressed" flags=18]
+
+[editable path="Clock"]
