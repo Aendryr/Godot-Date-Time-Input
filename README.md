@@ -4,7 +4,7 @@ This plugin will add a TimeEdit node that allows you to easily select Time.  It 
 
 ### Note:
 
-Tested only with godot 3.4.2 stable (let me know if you tested it with other versions)
+Tested only with godot 4.1 (let me know if you tested it with other versions)
 
 # Assets
 
