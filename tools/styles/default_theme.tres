@@ -1,57 +1,64 @@
-[gd_resource type="Theme" load_steps=7 format=2]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bu8lih0b3e64f"]
 
-[ext_resource path="res://addons/date-time-elements/tools/styles/no_radio_image.tres" type="Texture" id=1]
-[ext_resource path="res://addons/date-time-elements/tools/assets/Signika-VariableFont_wght.ttf" type="DynamicFontData" id=2]
+[ext_resource type="Texture2D" path="res://addons/date-time-elements/tools/styles/no_radio_image.tres" id="1"]
+[ext_resource type="FontFile" uid="uid://du2k7gp5t4sgx" path="res://addons/date-time-elements/tools/assets/Signika-VariableFont_wght.ttf" id="2"]
 
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.6, 0.6, 0.6, 0 )
+[sub_resource type="StyleBoxFlat" id="4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
-[sub_resource type="DynamicFont" id=3]
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 2 )
+[sub_resource type="FontFile" id="3"]
+fallbacks = Array[Font]([ExtResource("2")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.117647, 0.101961, 0.101961, 1 )
+[sub_resource type="StyleBoxFlat" id="1"]
+bg_color = Color(0.117647, 0.101961, 0.101961, 1)
 corner_radius_top_left = 200
 corner_radius_top_right = 200
 corner_radius_bottom_right = 200
 corner_radius_bottom_left = 200
 
-[sub_resource type="DynamicFont" id=2]
-use_mipmaps = true
-use_filter = true
-extra_spacing_top = -5
-font_data = ExtResource( 2 )
+[sub_resource type="FontFile" id="2"]
+fallbacks = Array[Font]([ExtResource("2")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [resource]
-default_font = SubResource( 2 )
-Button/colors/font_color = Color( 0.282353, 0.580392, 0.235294, 1 )
-Button/colors/font_color_disabled = Color( 0.282353, 0.580392, 0.235294, 1 )
-Button/colors/font_color_focus = Color( 0.282353, 0.580392, 0.235294, 1 )
-Button/colors/font_color_hover = Color( 0.282353, 0.580392, 0.235294, 1 )
-Button/colors/font_color_pressed = Color( 0.282353, 0.580392, 0.235294, 1 )
-Button/styles/disabled = SubResource( 4 )
-Button/styles/focus = SubResource( 4 )
-Button/styles/hover = SubResource( 4 )
-Button/styles/normal = SubResource( 4 )
-Button/styles/pressed = SubResource( 4 )
-CheckBox/colors/font_color = Color( 1, 1, 1, 1 )
-CheckBox/colors/font_color_pressed = Color( 0.282353, 0.580392, 0.235294, 1 )
-CheckBox/icons/checked = ExtResource( 1 )
-CheckBox/icons/checked_disabled = ExtResource( 1 )
-CheckBox/icons/radio_checked = ExtResource( 1 )
-CheckBox/icons/radio_checked_disabled = ExtResource( 1 )
-CheckBox/icons/radio_unchecked = ExtResource( 1 )
-CheckBox/icons/radio_unchecked_disabled = ExtResource( 1 )
-CheckBox/icons/unchecked = ExtResource( 1 )
-CheckBox/icons/unchecked_disabled = ExtResource( 1 )
-Label/colors/font_color = Color( 1, 1, 1, 1 )
-LineEdit/fonts/font = SubResource( 3 )
-Panel/styles/panel = SubResource( 1 )
+default_font = SubResource("2")
+Button/colors/font_color = Color(0.282353, 0.580392, 0.235294, 1)
+Button/colors/font_color_disabled = Color(0.282353, 0.580392, 0.235294, 1)
+Button/colors/font_color_focus = Color(0.282353, 0.580392, 0.235294, 1)
+Button/colors/font_color_hover = Color(0.282353, 0.580392, 0.235294, 1)
+Button/colors/font_color_pressed = Color(0.282353, 0.580392, 0.235294, 1)
+Button/styles/disabled = SubResource("4")
+Button/styles/focus = SubResource("4")
+Button/styles/hover = SubResource("4")
+Button/styles/normal = SubResource("4")
+Button/styles/pressed = SubResource("4")
+CheckBox/colors/font_color = Color(1, 1, 1, 1)
+CheckBox/colors/font_color_pressed = Color(0.282353, 0.580392, 0.235294, 1)
+CheckBox/icons/checked = ExtResource("1")
+CheckBox/icons/checked_disabled = ExtResource("1")
+CheckBox/icons/radio_checked = ExtResource("1")
+CheckBox/icons/radio_checked_disabled = ExtResource("1")
+CheckBox/icons/radio_unchecked = ExtResource("1")
+CheckBox/icons/radio_unchecked_disabled = ExtResource("1")
+CheckBox/icons/unchecked = ExtResource("1")
+CheckBox/icons/unchecked_disabled = ExtResource("1")
+Label/colors/font_color = Color(1, 1, 1, 1)
+LineEdit/fonts/font = SubResource("3")
+Panel/styles/panel = SubResource("1")
 PopupDialog/styles/panel = null
 VBoxContainer/constants/separation = 10

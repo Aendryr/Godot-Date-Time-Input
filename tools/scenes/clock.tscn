@@ -1,0 +1,467 @@
+[gd_scene load_steps=10 format=3 uid="uid://dd62kph24qxqm"]
+
+[ext_resource type="Script" path="res://addons/date-time-elements/tools/scenes/scripts/TimePanel.gd" id="1_uh78g"]
+[ext_resource type="Texture2D" uid="uid://ctequww0j0g3s" path="res://addons/date-time-elements/tools/assets/pencil-create.png" id="2_ta41s"]
+[ext_resource type="Script" path="res://addons/date-time-elements/tools/scenes/scripts/MinutesPanel.gd" id="3_vmjrw"]
+[ext_resource type="Script" path="res://addons/date-time-elements/tools/scenes/scripts/HoursPanel.gd" id="4_tepjp"]
+
+[sub_resource type="FontFile" id="FontFile_nggve"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/48/0 = Vector2(0, 0)
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/40/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/48/0 = Vector2(0, 0)
+cache/0/48/0/ascent = 0.0
+cache/0/48/0/descent = 0.0
+cache/0/48/0/underline_position = 0.0
+cache/0/48/0/underline_thickness = 0.0
+cache/0/48/0/scale = 1.0
+cache/0/48/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/48/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/48/0/kerning_overrides/48/0 = Vector2(0, 0)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_skeia"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mkke"]
+bg_color = Color(0.117647, 0.101961, 0.101961, 1)
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wuhcs"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 250
+corner_radius_top_right = 250
+corner_radius_bottom_right = 250
+corner_radius_bottom_left = 250
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pttem"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Clock" type="Panel"]
+visible = false
+offset_right = 337.0
+offset_bottom = 457.0
+script = ExtResource("1_uh78g")
+
+[node name="LayoutTop" type="FlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -122.0
+offset_top = 32.0
+offset_right = 122.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_constants/h_separation = 20
+alignment = 1
+vertical = true
+
+[node name="Value" type="Label" parent="LayoutTop"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_nggve")
+theme_override_font_sizes/font_size = 48
+text = "12:00"
+
+[node name="Label" type="Label" parent="LayoutTop/Value"]
+layout_mode = 0
+offset_top = -13.0
+offset_right = 40.0
+offset_bottom = 13.0
+text = "TIME"
+
+[node name="AMPMContainer" type="VBoxContainer" parent="LayoutTop"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AM" type="CheckBox" parent="LayoutTop/AMPMContainer"]
+layout_mode = 2
+button_pressed = true
+button_group = SubResource("ButtonGroup_skeia")
+text = "AM"
+
+[node name="PM" type="CheckBox" parent="LayoutTop/AMPMContainer"]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_skeia")
+text = "PM"
+
+[node name="ChangeMode" type="Button" parent="LayoutTop"]
+layout_mode = 2
+icon = ExtResource("2_ta41s")
+
+[node name="Minutes" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.2
+offset_top = -93.2
+offset_right = 123.2
+offset_bottom = 153.2
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5mkke")
+script = ExtResource("3_vmjrw")
+
+[node name="Hand" type="Marker2D" parent="Minutes"]
+position = Vector2(123.2, 123.2)
+
+[node name="Center" type="Panel" parent="Minutes/Hand"]
+modulate = Color(0.282353, 0.580392, 0.235294, 1)
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wuhcs")
+
+[node name="Circle" type="Panel" parent="Minutes/Hand"]
+modulate = Color(0.282353, 0.580392, 0.235294, 1)
+offset_left = -18.0
+offset_top = -110.2
+offset_right = 18.0
+offset_bottom = -74.2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wuhcs")
+
+[node name="Panel" type="Panel" parent="Minutes/Hand"]
+modulate = Color(0.282353, 0.580392, 0.235294, 1)
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 6.0
+offset_bottom = 98.0
+rotation = 3.14159
+theme_override_styles/panel = SubResource("StyleBoxFlat_pttem")
+
+[node name="05" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+offset_left = 151.7
+offset_top = 24.7
+offset_right = 187.7
+offset_bottom = 60.7
+text = "05"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="10" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+offset_left = 184.7
+offset_top = 58.7
+offset_right = 220.7
+offset_bottom = 94.7
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="15" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+offset_left = 197.7
+offset_top = 104.7
+offset_right = 233.7
+offset_bottom = 140.7
+text = "15"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="20" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+offset_left = 184.7
+offset_top = 150.7
+offset_right = 220.7
+offset_bottom = 186.7
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="25" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+offset_left = 151.7
+offset_top = 184.7
+offset_right = 187.7
+offset_bottom = 220.7
+text = "25"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="30" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+offset_left = 105.7
+offset_top = 196.7
+offset_right = 141.7
+offset_bottom = 232.7
+text = "30"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="35" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+offset_left = 58.7
+offset_top = 184.7
+offset_right = 94.7
+offset_bottom = 220.7
+text = "35"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="40" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+offset_left = 25.7
+offset_top = 150.7
+offset_right = 61.7
+offset_bottom = 186.7
+text = "40"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="45" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+offset_left = 13.7
+offset_top = 104.7
+offset_right = 49.7
+offset_bottom = 140.7
+text = "45"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="50" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+offset_left = 24.7
+offset_top = 58.7
+offset_right = 60.7
+offset_bottom = 94.7
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="55" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+offset_left = 59.7
+offset_top = 24.7
+offset_right = 95.7
+offset_bottom = 60.7
+text = "55"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="00" type="Label" parent="Minutes" groups=["date-time-minutes-popup"]]
+layout_mode = 0
+offset_left = 105.7
+offset_top = 12.7
+offset_right = 141.7
+offset_bottom = 48.7
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hours" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.2
+offset_top = -93.2
+offset_right = 123.2
+offset_bottom = 153.2
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5mkke")
+script = ExtResource("4_tepjp")
+
+[node name="Hand" type="Marker2D" parent="Hours"]
+position = Vector2(123.2, 123.2)
+
+[node name="Center" type="Panel" parent="Hours/Hand"]
+modulate = Color(0.282353, 0.580392, 0.235294, 1)
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wuhcs")
+
+[node name="Circle" type="Panel" parent="Hours/Hand"]
+modulate = Color(0.282353, 0.580392, 0.235294, 1)
+offset_left = -18.0
+offset_top = -110.2
+offset_right = 18.0
+offset_bottom = -74.2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wuhcs")
+
+[node name="Panel" type="Panel" parent="Hours/Hand"]
+modulate = Color(0.282353, 0.580392, 0.235294, 1)
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 6.0
+offset_bottom = 98.0
+rotation = 3.14159
+theme_override_styles/panel = SubResource("StyleBoxFlat_pttem")
+
+[node name="01" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+offset_left = 151.7
+offset_top = 24.7
+offset_right = 187.7
+offset_bottom = 60.7
+text = "01"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="02" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+offset_left = 184.7
+offset_top = 58.7
+offset_right = 220.7
+offset_bottom = 94.7
+text = "02"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="03" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+offset_left = 197.7
+offset_top = 104.7
+offset_right = 233.7
+offset_bottom = 140.7
+text = "03"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="04" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+offset_left = 184.7
+offset_top = 150.7
+offset_right = 220.7
+offset_bottom = 186.7
+text = "04"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="05" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+offset_left = 151.7
+offset_top = 184.7
+offset_right = 187.7
+offset_bottom = 220.7
+text = "05"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="06" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+offset_left = 105.7
+offset_top = 196.7
+offset_right = 141.7
+offset_bottom = 232.7
+text = "06"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="07" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+offset_left = 58.7
+offset_top = 184.7
+offset_right = 94.7
+offset_bottom = 220.7
+text = "07"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="08" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+offset_left = 25.7
+offset_top = 150.7
+offset_right = 61.7
+offset_bottom = 186.7
+text = "08"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="09" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+offset_left = 13.7
+offset_top = 104.7
+offset_right = 49.7
+offset_bottom = 140.7
+text = "09"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="10" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+offset_left = 24.7
+offset_top = 58.7
+offset_right = 60.7
+offset_bottom = 94.7
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="11" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+offset_left = 59.7
+offset_top = 24.7
+offset_right = 95.7
+offset_bottom = 60.7
+text = "11"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="12" type="Label" parent="Hours" groups=["date-time-hours-popup"]]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 13.0
+offset_right = 141.0
+offset_bottom = 49.0
+text = "12"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LayoutBottom" type="FlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -121.5
+offset_top = -52.0
+offset_right = 122.5
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 2
+
+[node name="Cancel" type="Button" parent="LayoutBottom"]
+layout_mode = 2
+text = "Cancel"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="LayoutTop/AMPMContainer/AM" to="." method="_on_AMPM_pressed" binds= ["am"]]
+[connection signal="pressed" from="LayoutTop/AMPMContainer/PM" to="." method="_on_AMPM_pressed" binds= ["pm"]]
+[connection signal="pressed" from="LayoutTop/ChangeMode" to="." method="_on_SwitchToManual_pressed"]
+[connection signal="mouse_entered" from="Minutes" to="Minutes" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Minutes" to="Minutes" method="_on_mouse_exited"]
+[connection signal="visibility_changed" from="Minutes" to="Minutes" method="_on_visibility_changed"]
+[connection signal="mouse_entered" from="Hours" to="Hours" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Hours" to="Hours" method="_on_mouse_exited"]
+[connection signal="visibility_changed" from="Hours" to="Hours" method="_on_visibility_changed"]
+[connection signal="pressed" from="LayoutBottom/Cancel" to="." method="_on_cancel_pressed"]
