@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bimkc5conx88y" path="res://addons/date-time-elements/tools/assets/time.png" id="2_0k6l0"]
 
 [sub_resource type="FontFile" id="FontFile_nggve"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0

@@ -1,5 +1,5 @@
 extends Panel
-##Script that handles Clouk functionality
+##Script that handles Clock functionality
 
 ## Mouse Entered
 var mouse_in:bool=false;

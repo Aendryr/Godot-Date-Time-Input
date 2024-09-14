@@ -1,5 +1,6 @@
 extends Panel
 ##Script that handles Manual Clouk functionality
+var previous_text = ""
 
 func _ready():
 	get_parent().time_changed.connect(_on_time_changed);
@@ -12,26 +13,46 @@ func _input(event):
 
 # Check if format is valid using regex
 func _on_time_edit_text_changed(new_text):
-	var regex=RegEx.new()
-	regex.compile("((1[0-2]|0?[1-9]):([0-5]?[0-9]) ?([AaPp]))")
+	var regex = RegEx.new()
+	regex.compile("^(0?[0-9]|1[0-2])?(:([0-5]?[0-9])?)? ?([AaPp]?[Mm]?)?$");
 	var result=regex.search(new_text)
-	
 	if(result):
-		result = result.get_string().split(" ");
-		var ampm=result[1];
-		result = result[0].split(":");
-		var hour=result[0];
-		var minute=result[1];
-		if(len(hour)==1):
-			hour="0"+hour
-		if(len(minute)==1):
-			minute="0"+minute;
-		if(ampm.to_lower() == "a"):
-			ampm="am";
-		if(ampm.to_lower() == "p"):
-			ampm="pm"
-		if(hour+":"+minute+" "+ampm != $LayoutTop/Value.text+" "+$LayoutTop/AMPMContainer/AM.button_group.get_pressed_button().name.to_lower()):
-			get_parent().time_changed.emit(hour+":"+minute,ampm);
+		var temp_carret = $TimeEdit.caret_column
+		$TimeEdit.text=result.get_string();
+		$TimeEdit.caret_column=temp_carret
+		
+		regex.compile('^(\\d{2})$');
+		var result2=regex.search(new_text)
+		if(result2):
+			if(!previous_text.contains(':')):
+				$TimeEdit.text=result2.get_string()+":";
+				$TimeEdit.set_caret_column($TimeEdit.text.length())
+		else:
+			regex.compile("((1[0-2]|0?[1-9]):([0-5]?[0-9]) ?([AaPp]))")
+			var result3=regex.search(new_text)
+			
+			if(result3):
+				result = result3.get_string().split(" ");
+				var ampm=result[1];
+				result = result[0].split(":");
+				var hour=result[0];
+				var minute=result[1];
+				if(len(hour)==1):
+					hour="0"+hour
+				if(len(minute)==1):
+					minute="0"+minute;
+				if(ampm.to_lower() == "a"):
+					ampm="am";
+				if(ampm.to_lower() == "p"):
+					ampm="pm"
+				if(hour+":"+minute+" "+ampm != $LayoutTop/Value.text+" "+$LayoutTop/AMPMContainer/AM.button_group.get_pressed_button().name.to_lower()):
+					get_parent().time_changed.emit(hour+":"+minute,ampm);
+	else:
+		$TimeEdit.delete_char_at_caret()
+		if($TimeEdit.text.length()==0):
+			$TimeEdit.clear()
+	previous_text = new_text;
+
 
 # Set cursor at the end of the line //blinking is enabled
 func _on_time_edit_focus_entered():
@@ -60,4 +81,3 @@ func _on_draw():
 func _on_time_changed(time,ampm):
 	$LayoutTop/Value.text = time
 	get_node("LayoutTop/AMPMContainer/"+ampm.to_upper()).button_pressed=true
-
